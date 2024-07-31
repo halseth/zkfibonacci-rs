@@ -1,12 +1,17 @@
 [package]
-name = "multiply-rs"
+name = "zkfibonacci-rs"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-winter-verifier = { path = "/Users/johan.halseth/go/src/github.com/facebook/winterfell/verifier", default-features = false }
-winter-crypto = { path = "/Users/johan.halseth/go/src/github.com/facebook/winterfell/crypto", default-features = false }
-winter-math = { path = "/Users/johan.halseth/go/src/github.com/facebook/winterfell/math", default-features = false }
-winter-air = { path = "/Users/johan.halseth/go/src/github.com/facebook/winterfell/air", default-features = false }
-risc0-zkvm-platform = { version = "0.20.1", features = ["export-syscalls"] }
+winter-verifier = { git = "https://github.com/facebook/winterfell.git", rev = "c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a", default-features = false }
+winter-crypto = { git = "https://github.com/facebook/winterfell.git", rev = "c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a", default-features = false }
+winter-math = { git = "https://github.com/facebook/winterfell.git", rev = "c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a", default-features = false }
+winter-air = { git = "https://github.com/facebook/winterfell.git", rev = "c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a", default-features = false }
 hex-literal = "0.4.1"
+risc0-zkvm-platform = { git = "https://github.com/halseth/risc0.git", rev="c7c0598dd08e1a724effd30737487f7c90c6aba1", features = ["export-syscalls"] }
+bytemuck = { version = "1.13", features = ["extern_crate_alloc"] }
+serde = { version = "1.0", default-features = false, features = [
+    "alloc",
+    "derive",
+] }

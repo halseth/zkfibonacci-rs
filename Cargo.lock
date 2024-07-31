@@ -4,9 +4,9 @@ version = 3
 
 [[package]]
 name = "arrayref"
-version = "0.3.7"
+version = "0.3.8"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "6b4930d2cb77ce62f89ee5d5289b4ac049559b1c45539271f5ed4fdc7db34545"
+checksum = "9d151e35f61089500b617991b791fc8bfd237ae50cd5950803758a179b41e67a"
 
 [[package]]
 name = "arrayvec"
@@ -16,9 +16,9 @@ checksum = "96d30a06541fbafbc7f82ed10c06164cfbd2c401138f6addd8404629c4b16711"
 
 [[package]]
 name = "blake3"
-version = "1.5.0"
+version = "1.5.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "0231f06152bf547e9c2b5194f247cd97aacf6dcd8b15d8e5ec0663f64580da87"
+checksum = "e9ec96fe9a81b5e365f9db71fe00edc4fe4ca2cc7dcb7861f0603012a7caa210"
 dependencies = [
  "arrayref",
  "arrayvec",
@@ -37,10 +37,16 @@ dependencies = [
 ]
 
 [[package]]
-name = "cc"
-version = "1.0.89"
+name = "bytemuck"
+version = "1.16.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "a0ba8f7aaa012f30d5b2861462f6708eccd49c3c39863fe083a308035f63d723"
+checksum = "102087e286b4677862ea56cf8fc58bb2cdfa8725c40ffb80fe3a008eb7f2fc83"
+
+[[package]]
+name = "cc"
+version = "1.1.7"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "26a5c3fd7bfa1ce3897a3a3501d362b2d87b7f2583ebcb4a949ec25911025cbc"
 
 [[package]]
 name = "cfg-if"
@@ -110,9 +116,9 @@ dependencies = [
 
 [[package]]
 name = "libc"
-version = "0.2.153"
+version = "0.2.155"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "9c198f91728a82281a64e1f4f9eeb25d82cb32a5de251c6bd1b5154d63a8e7bd"
+checksum = "97b3888a4aecf77e811145cadf6eef5901f4782c53886191b2f693f24761847c"
 
 [[package]]
 name = "libm"
@@ -121,22 +127,47 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "4ec2a862134d2a7d32d7983ddcdd1c4923530833c9f2ea1a44fc5fa473989058"
 
 [[package]]
-name = "multiply-rs"
-version = "0.1.0"
+name = "proc-macro2"
+version = "1.0.86"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "5e719e8df665df0d1c8fbfd238015744736151d4445ec0836b8e628aae103b77"
 dependencies = [
- "hex-literal",
- "risc0-zkvm-platform",
- "winter-air",
- "winter-crypto",
- "winter-math",
- "winter-verifier",
+ "unicode-ident",
+]
+
+[[package]]
+name = "quote"
+version = "1.0.36"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0fa76aaf39101c457836aec0ce2316dbdc3ab723cdda1c6bd4e6ad4208acaca7"
+dependencies = [
+ "proc-macro2",
 ]
 
 [[package]]
 name = "risc0-zkvm-platform"
-version = "0.20.1"
+version = "0.22.0-alpha.1"
+source = "git+https://github.com/halseth/risc0.git?rev=c7c0598dd08e1a724effd30737487f7c90c6aba1#c7c0598dd08e1a724effd30737487f7c90c6aba1"
+
+[[package]]
+name = "serde"
+version = "1.0.204"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "cc5819c0c3bfd8f20b1226c9d4ca1f342eb3d8385e71211a9383a879643d1dde"
+checksum = "bc76f558e0cbb2a839d37354c575f1dc3fdc6546b5be373ba43d95f231bf7c12"
+dependencies = [
+ "serde_derive",
+]
+
+[[package]]
+name = "serde_derive"
+version = "1.0.204"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "e0cd7e117be63d3c3678776753929474f3b04a43a080c744d6b0ae2a8c28e222"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "syn",
+]
 
 [[package]]
 name = "sha3"
@@ -149,20 +180,38 @@ dependencies = [
 ]
 
 [[package]]
+name = "syn"
+version = "2.0.72"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "dc4b9b9bf2add8093d3f2c0204471e951b2285580335de42f9d2534f3ae7a8af"
+dependencies = [
+ "proc-macro2",
+ "quote",
+ "unicode-ident",
+]
+
+[[package]]
 name = "typenum"
 version = "1.17.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "42ff0bf0c66b8238c6f3b578df37d0b7848e55df8577b3f74f92a69acceeb825"
 
 [[package]]
-name = "version_check"
-version = "0.9.4"
+name = "unicode-ident"
+version = "1.0.12"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "49874b5167b65d7193b8aba1567f5c7d93d001cafc34600cee003eda787e483f"
+checksum = "3354b9ac3fae1ff6755cb6db53683adb661634f67557942dea4facebec0fee4b"
+
+[[package]]
+name = "version_check"
+version = "0.9.5"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "0b928f33d975fc6ad9f86c8f283853ad26bdd5b10b7f1542aa2fa15e2289105a"
 
 [[package]]
 name = "winter-air"
 version = "0.8.1"
+source = "git+https://github.com/facebook/winterfell.git?rev=c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a#c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a"
 dependencies = [
  "libm",
  "winter-crypto",
@@ -174,6 +223,7 @@ dependencies = [
 [[package]]
 name = "winter-crypto"
 version = "0.8.1"
+source = "git+https://github.com/facebook/winterfell.git?rev=c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a#c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a"
 dependencies = [
  "blake3",
  "sha3",
@@ -184,6 +234,7 @@ dependencies = [
 [[package]]
 name = "winter-fri"
 version = "0.8.1"
+source = "git+https://github.com/facebook/winterfell.git?rev=c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a#c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a"
 dependencies = [
  "winter-crypto",
  "winter-math",
@@ -193,6 +244,7 @@ dependencies = [
 [[package]]
 name = "winter-math"
 version = "0.8.1"
+source = "git+https://github.com/facebook/winterfell.git?rev=c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a#c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a"
 dependencies = [
  "winter-utils",
 ]
@@ -200,14 +252,30 @@ dependencies = [
 [[package]]
 name = "winter-utils"
 version = "0.8.2"
+source = "git+https://github.com/facebook/winterfell.git?rev=c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a#c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a"
 
 [[package]]
 name = "winter-verifier"
 version = "0.8.1"
+source = "git+https://github.com/facebook/winterfell.git?rev=c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a#c5d8dd9f537621c1ed93dc4e7f6d8eeb2069193a"
 dependencies = [
  "winter-air",
  "winter-crypto",
  "winter-fri",
  "winter-math",
  "winter-utils",
+]
+
+[[package]]
+name = "zkfibonacci-rs"
+version = "0.1.0"
+dependencies = [
+ "bytemuck",
+ "hex-literal",
+ "risc0-zkvm-platform",
+ "serde",
+ "winter-air",
+ "winter-crypto",
+ "winter-math",
+ "winter-verifier",
 ]
